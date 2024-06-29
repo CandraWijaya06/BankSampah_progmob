@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:fitsSystemWindows="true"
+    tools:context=".BaseActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <TextView
+                android:id="@+id/welcomeText"
+                style="@style/MediumTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selamat Datang" />
+
+            <TextView
+                android:id="@+id/userNameText"
+                style="@style/LargeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Candra Kun" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@drawable/rounded_rectangle"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/pointsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Poin ThreeStorationmu"
+                    android:textSize="18sp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/pointsValueText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25.000 Poin"
+                    android:textSize="24sp"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@drawable/rounded_rectangle"
+                android:gravity="">
+
+                <TextView
+                    android:id="@+id/descriptionText"
+                    style="@style/SmallTextView"
+                    android:layout_width="252dp"
+                    android:layout_height="wrap_content"
+                    android:text="Tukarkan Sampahmu Sekarang!\nAplikasi Bank Sampah adalah solusi untuk menyelesaikan masalah tentang kebersihan lingkungan." />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/menuCategoryText"
+                style="@style/MediumTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kategori Menu" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/buttonInformasiSampah"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Informasi Sampah" />
+
+                <Button
+                    android:id="@+id/buttonJualSampah"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Jual Sampah" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

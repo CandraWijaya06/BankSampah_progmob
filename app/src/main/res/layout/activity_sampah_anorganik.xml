@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Informasi Sampah Anorganik"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:paddingBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_rectangle"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sampah Anorganik"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:paddingBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sampah anorganik adalah jenis sampah yang terdiri dari bahan-bahan yang tidak mudah terurai secara alami oleh proses penguraian biologis. Sampah ini umumnya berasal dari produk-produk manusia dan memiliki sifat yang lebih tahan lama daripada sampah organik. Contoh-contoh sampah anorganik meliputi:
+Plastik: Plastik adalah jenis sampah anorganik yang paling umum. Contohnya termasuk botol plastik, kantong plastik, wadah makanan plastik, bungkus plastik, mainan plastik, dan peralatan rumah tangga dari plastik.
+Kertas dan Karton: Sampah kertas dan karton meliputi kertas bekas, koran, majalah, kardus, kotak karton, atau bungkus kertas.
+Logam: Sampah logam meliputi kaleng, botol dan tutup logam, kawat, potongan besi, sisa konstruksi logam, dan barang-barang logam lainnya.
+Kaca: Sampah kaca meliputi botol kaca, pecahan kaca, atau barang-barang kaca lainnya seperti kaca jendela, cermin, atau peralatan kaca.
+Karet: Contoh sampah anorganik berupa karet meliputi ban bekas, selang karet, atau sisa produk karet lainnya.
+Elektronik: Sampah elektronik (e-waste) meliputi perangkat elektronik yang sudah tidak terpakai lagi, seperti komputer, telepon genggam, televisi, peralatan rumah tangga elektronik, atau aksesori elektronik.
+Baterai: Baterai bekas dari perangkat elektronik, mainan, atau alat-alat lainnya juga merupakan jenis sampah anorganik.
+Kemasan: Kemasan seperti styrofoam, blister pack, atau kemasan plastik keras termasuk dalam sampah anorganik.
+Kain sintetis: Sisa pakaian atau tekstil yang terbuat dari serat sintetis seperti polyester atau nilon juga termasuk sampah anorganik.
+Barang keramik: Barang-barang keramik seperti piring, cangkir, atau vas yang pecah atau tidak terpakai lagi adalah jenis sampah anorganik.
+Pengelolaan sampah anorganik umumnya melibatkan upaya daur ulang, pengurangan penggunaan plastik dan kemasan sekali pakai, serta pemilahan sampah untuk menghindari pencemaran lingkungan dan meminimalkan akumulasi sampah yang sulit terurai."
+                android:textSize="16sp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/viewMoreButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Informasi Anorganik"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+</ScrollView>

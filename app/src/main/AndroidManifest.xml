@@ -17,10 +17,27 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".BaseActivity" android:exported="false" />
+        <activity android:name=".InformasiSampahActivity"
+            android:exported="false" />
+        <activity android:name=".SampahOrganikActivity"
+            android:exported="false" />
+        <activity android:name=".SampahAnorganikActivity"
+            android:exported="false" />
+        <activity android:name=".SampahBerbahayaActivity"
+            android:exported="false" />
+        <activity android:name=".InformasiAnorganikActivity"
+            android:exported="false"/>
+        <activity android:name=".SampahBotolPlastikActivity" android:exported="false"/>
+        <activity android:name=".SampahKalengActivity" android:exported="false"/>
+        <activity android:name=".SampahKardusActivity" android:exported="false"/>
+        <activity android:name=".JualSampahActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
