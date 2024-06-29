@@ -1,0 +1,137 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    tools:context=".RegisterActivity">
+
+    <!-- Logo Placeholder -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="230dp"
+        android:layout_height="190dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/appNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "Register Akun"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="30dp"
+        android:gravity="start" />
+
+    <!-- Nama Field -->
+    <EditText
+        android:id="@+id/namaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appNameTextView"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableStart="@drawable/ic_user"
+        android:drawablePadding="10dp"
+        android:hint="Nama"
+        android:minHeight="48dp"
+        android:padding="10dp" />
+
+    <!-- Email Field -->
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/namaEditText"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_text_background"
+        android:drawablePadding="10dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:drawableStart="@drawable/baseline_alternate_email_24"
+        android:padding="10dp" />
+
+    <!-- Kata Sandi Field -->
+    <EditText
+        android:id="@+id/kataSandiEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Kata Sandi"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:layout_below="@id/emailEditText"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableStart="@drawable/ic_password"
+        android:drawablePadding="10dp" />
+
+    <!-- Nomor Telepon Field -->
+    <EditText
+        android:id="@+id/nomorTeleponEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/kataSandiEditText"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableStart="@drawable/baseline_call_24"
+        android:drawablePadding="10dp"
+        android:hint="Nomor Telepon"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:padding="10dp" />
+
+    <!-- Checkbox for Terms and Conditions -->
+    <LinearLayout
+        android:id="@+id/termsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/nomorTeleponEditText"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <CheckBox
+            android:id="@+id/termsCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saya setuju dengan "
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <!-- Register Button -->
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DAFTAR"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/termsLayout"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+
+    <!-- Sudah Punya Akun? -->
+    <TextView
+        android:id="@+id/alreadyHaveAccountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sudah punya akun? Masuk"
+        android:textColor="@android:color/holo_blue_light"
+        android:layout_below="@id/registerButton"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

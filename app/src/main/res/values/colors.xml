@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="teal_200">#FF000000</color>
+    <color name="green">#52D474</color>
+    <color name="darkgreen">#53A736</color>
+    <color name="lavender">#C0C0F2</color>
+    <color name="lightgreen">#06D001</color>
+    <color name="bluegreen">#07BB9C</color>
+    <color name="lightlygreen">#90EE90</color>
 </resources>
