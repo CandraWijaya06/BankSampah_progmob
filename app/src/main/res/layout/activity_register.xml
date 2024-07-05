@@ -5,7 +5,6 @@
     android:background="@drawable/background_gradient"
     tools:context=".RegisterActivity">
 
-    <!-- Logo Placeholder -->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="230dp"
@@ -25,7 +24,6 @@
         android:layout_marginLeft="30dp"
         android:gravity="start" />
 
-    <!-- Nama Field -->
     <EditText
         android:id="@+id/namaEditText"
         android:layout_width="match_parent"
@@ -41,7 +39,6 @@
         android:minHeight="48dp"
         android:padding="10dp" />
 
-    <!-- Email Field -->
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
@@ -58,23 +55,22 @@
         android:drawableStart="@drawable/baseline_alternate_email_24"
         android:padding="10dp" />
 
-    <!-- Kata Sandi Field -->
     <EditText
         android:id="@+id/kataSandiEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Kata Sandi"
-        android:inputType="textPassword"
-        android:padding="10dp"
         android:layout_below="@id/emailEditText"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/edit_text_background"
         android:drawableStart="@drawable/ic_password"
-        android:drawablePadding="10dp" />
+        android:drawablePadding="10dp"
+        android:hint="Kata Sandi"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:padding="10dp" />
 
-    <!-- Nomor Telepon Field -->
     <EditText
         android:id="@+id/nomorTeleponEditText"
         android:layout_width="match_parent"
@@ -91,7 +87,6 @@
         android:minHeight="48dp"
         android:padding="10dp" />
 
-    <!-- Checkbox for Terms and Conditions -->
     <LinearLayout
         android:id="@+id/termsLayout"
         android:layout_width="match_parent"
@@ -110,7 +105,6 @@
             android:textColor="@android:color/white" />
     </LinearLayout>
 
-    <!-- Register Button -->
     <Button
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
@@ -123,7 +117,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp" />
 
-    <!-- Sudah Punya Akun? -->
     <TextView
         android:id="@+id/alreadyHaveAccountTextView"
         android:layout_width="wrap_content"
