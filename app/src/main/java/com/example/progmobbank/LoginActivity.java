@@ -120,19 +120,21 @@ public class LoginActivity extends AppCompatActivity {
             String status = jsonResponse.getString("status");
 
             if (status.equals("success")) {
-                // Menyimpan ID pengguna ke dalam SharedPreferences
                 String userId = jsonResponse.getJSONObject("user").getString("userId");
+                String userName = jsonResponse.getJSONObject("user").getString("username");  // Asumsikan ada field username di response JSON
 
                 SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("userId", userId);  // Simpan userId ke dalam session
+                editor.putString("userName", userName);  // Simpan userName ke dalam session
                 editor.apply();
 
                 Toast.makeText(LoginActivity.this, jsonResponse.getString("message"), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LoginActivity.this, BaseActivity.class);
                 startActivity(intent);
                 finish();
-            } else {
+            }
+            else {
                 Toast.makeText(LoginActivity.this, jsonResponse.getString("message"), Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException e) {
