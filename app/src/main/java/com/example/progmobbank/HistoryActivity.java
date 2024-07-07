@@ -17,17 +17,20 @@ public class HistoryActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.history); // Set the default selected item
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
+            Intent intent = null;
             if (item.getItemId() == R.id.home) {
-                startActivity(new Intent(HistoryActivity.this, BaseActivity.class));
-                return true;
+                intent = new Intent(HistoryActivity.this, BaseActivity.class);
             } else if (item.getItemId() == R.id.notifications) {
-                startActivity(new Intent(HistoryActivity.this, NotifActivity.class));
-                return true;
+                intent = new Intent(HistoryActivity.this, NotifActivity.class);
             } else if (item.getItemId() == R.id.history) {
                 return true; // Stay on this activity
             } else if (item.getItemId() == R.id.manage_accounts) {
-                startActivity(new Intent(HistoryActivity.this, UserActivity.class));
-                return true;
+                intent = new Intent(HistoryActivity.this, UserActivity.class);
+            }
+
+            if (intent != null) {
+                startActivity(intent);
+                overridePendingTransition(0, 0); // No animation for activity transition
             }
             return false;
         });

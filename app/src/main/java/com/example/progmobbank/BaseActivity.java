@@ -36,27 +36,30 @@ public class BaseActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.home); // Set the default selected item
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
+            Intent intent = null;
             if (item.getItemId() == R.id.home) {
                 return true; // Stay on this activity
             } else if (item.getItemId() == R.id.notifications) {
-                startActivity(new Intent(BaseActivity.this, NotifActivity.class));
-                return true;
+                intent = new Intent(BaseActivity.this, NotifActivity.class);
             } else if (item.getItemId() == R.id.history) {
-                startActivity(new Intent(BaseActivity.this, HistoryActivity.class));
-                return true;
+                intent = new Intent(BaseActivity.this, HistoryActivity.class);
             } else if (item.getItemId() == R.id.manage_accounts) {
-                startActivity(new Intent(BaseActivity.this, UserActivity.class));
-                return true;
+                intent = new Intent(BaseActivity.this, UserActivity.class);
+            }
+
+            if (intent != null) {
+                startActivity(intent);
+                overridePendingTransition(0, 0); // No animation for activity transition
             }
             return false;
         });
 
-// Setup FAB
+        // Setup FAB
         findViewById(R.id.fab).setOnClickListener(view -> {
             // Handle FAB click
         });
-
     }
+
 
     public void onInformasiSampahClick(View view) {
         Intent intent = new Intent(BaseActivity.this, InformasiSampahActivity.class);
