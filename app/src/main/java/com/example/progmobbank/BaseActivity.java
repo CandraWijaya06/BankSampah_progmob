@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity {
 
-    private Button logoutButton;
     private TextView userNameText;
 
     @Override
@@ -19,8 +18,8 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
 
-        logoutButton = findViewById(R.id.logoutButton);
         userNameText = findViewById(R.id.userNameText);
+        LinearLayout informasiSampahButton = findViewById(R.id.informasiSampahButton);
 
         // Ambil nama pengguna dari SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
@@ -28,13 +27,20 @@ public class BaseActivity extends AppCompatActivity {
 
         // Atur teks TextView dengan nama pengguna
         userNameText.setText(userName);
+    }
 
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                logoutUser();
-            }
-        });
+    public void onInformasiSampahClick(View view) {
+        Intent intent = new Intent(BaseActivity.this, InformasiSampahActivity.class);
+        startActivity(intent);
+    }
+
+    public void onJualSampahClick(View view) {
+        Intent intent = new Intent(BaseActivity.this, JualSampahActivity.class);
+        startActivity(intent);
+    }
+
+    public void onLogoutClick(View view) {
+        logoutUser();
     }
 
     private void logoutUser() {

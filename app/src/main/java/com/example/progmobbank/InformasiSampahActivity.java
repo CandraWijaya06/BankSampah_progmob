@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -34,9 +35,9 @@ public class InformasiSampahActivity extends AppCompatActivity {
         container = findViewById(R.id.container);
 
         // Tambahkan data sampah
-        sampahList.add(new SampahItem("Sampah Organik", SampahOrganikActivity.class));
-        sampahList.add(new SampahItem("Sampah Anorganik", SampahAnorganikActivity.class));
-        sampahList.add(new SampahItem("Sampah Berbahaya", SampahBerbahayaActivity.class));
+        sampahList.add(new SampahItem("Sampah Organik", SampahOrganikActivity.class, R.drawable.organik));
+        sampahList.add(new SampahItem("Sampah Anorganik", SampahAnorganikActivity.class, R.drawable.anorganik));
+        sampahList.add(new SampahItem("Sampah Berbahaya", SampahBerbahayaActivity.class, R.drawable.b3));
 
         filteredList.addAll(sampahList);
         updateUI();
@@ -74,9 +75,12 @@ public class InformasiSampahActivity extends AppCompatActivity {
         for (SampahItem item : filteredList) {
             View view = LayoutInflater.from(this).inflate(R.layout.item_sampah, container, false);
             TextView title = view.findViewById(R.id.sampahTitle);
+            ImageView imageView = view.findViewById(R.id.imageView);
             Button viewMoreButton = view.findViewById(R.id.viewMoreButton);
 
             title.setText(item.getTitle());
+            imageView.setImageResource(item.getImageResId());
+
             viewMoreButton.setOnClickListener(v -> {
                 Intent intent = new Intent(InformasiSampahActivity.this, item.getActivityClass());
                 startActivity(intent);
@@ -89,10 +93,12 @@ public class InformasiSampahActivity extends AppCompatActivity {
     private static class SampahItem {
         private final String title;
         private final Class<?> activityClass;
+        private final int imageResId;
 
-        public SampahItem(String title, Class<?> activityClass) {
+        public SampahItem(String title, Class<?> activityClass, int imageResId) {
             this.title = title;
             this.activityClass = activityClass;
+            this.imageResId = imageResId;
         }
 
         public String getTitle() {
@@ -101,6 +107,10 @@ public class InformasiSampahActivity extends AppCompatActivity {
 
         public Class<?> getActivityClass() {
             return activityClass;
+        }
+
+        public int getImageResId() {
+            return imageResId;
         }
     }
 }
