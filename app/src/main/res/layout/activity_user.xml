@@ -123,7 +123,7 @@
                     android:drawableLeft="@drawable/baseline_logout_24"
                     android:drawableTint="@color/red"
                     android:text="Logout"
-                    android:textColor="@android:color/red"
+                    android:textColor="@color/red"
                     android:layout_marginBottom="8dp"
                     style="@style/Widget.AppCompat.Button.Borderless" />
             </LinearLayout>
