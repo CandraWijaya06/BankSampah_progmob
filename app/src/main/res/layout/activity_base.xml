@@ -36,7 +36,8 @@
                 android:id="@+id/logoutButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Logout" />
+                android:text="Logout"
+                android:onClick="onLogoutClick" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -136,7 +137,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/onJualSampahClick"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -146,7 +146,8 @@
                     android:padding="16dp"
                     android:layout_marginStart="8dp"
                     android:clickable="true"
-                    android:focusable="true">
+                    android:focusable="true"
+                    android:onClick="onJualSampahClick">
 
                     <ImageView
                         android:layout_width="100dp"

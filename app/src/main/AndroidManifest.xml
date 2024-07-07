@@ -32,7 +32,13 @@
             android:exported="false" />
         <activity android:name=".SampahOrganikActivity"
             android:exported="false" />
+        <activity android:name=".HistoryActivity"
+            android:exported="false" />
+        <activity android:name=".NotifActivity"
+            android:exported="false" />
         <activity android:name=".SampahAnorganikActivity"
+            android:exported="false" />
+        <activity android:name=".UserActivity"
             android:exported="false" />
         <activity android:name=".SampahBerbahayaActivity"
             android:exported="false" />
