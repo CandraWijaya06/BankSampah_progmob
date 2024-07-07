@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -18,32 +20,31 @@ import java.util.List;
 
 public class InformasiAnorganikActivity extends AppCompatActivity {
 
-    private List<String> sampahList;
-    private List<String> filteredList;
+    private EditText searchEditText;
     private LinearLayout container;
 
+    private List<SampahItem> sampahList = new ArrayList<>();
+    private List<SampahItem> filteredList = new ArrayList<>();
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informasi_anorganik);
 
-        EditText searchEditText = findViewById(R.id.searchEditTextAnorganik);
+        searchEditText = findViewById(R.id.searchEditTextAnorganik);
         container = findViewById(R.id.containerAnorganik);
 
-        sampahList = new ArrayList<>();
-        filteredList = new ArrayList<>();
-
-        sampahList.add("Sampah Botol Plastik");
-        sampahList.add("Sampah Kaleng");
-        sampahList.add("Sampah Kardus");
+        // Tambahkan data sampah
+        sampahList.add(new SampahItem("Sampah Botol Plastik", SampahBotolPlastikActivity.class, R.drawable.botol));
+        sampahList.add(new SampahItem("Sampah Kaleng", SampahKalengActivity.class, R.drawable.kaleng));
+        sampahList.add(new SampahItem("Sampah Kardus", SampahKardusActivity.class, R.drawable.kardus));
 
         filteredList.addAll(sampahList);
         updateUI();
 
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -51,16 +52,19 @@ public class InformasiAnorganikActivity extends AppCompatActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
-            }
+            public void afterTextChanged(Editable s) {}
         });
     }
 
     private void filterList(String query) {
         filteredList.clear();
-        for (String item : sampahList) {
-            if (item.toLowerCase().contains(query.toLowerCase())) {
-                filteredList.add(item);
+        if (query.isEmpty()) {
+            filteredList.addAll(sampahList);
+        } else {
+            for (SampahItem item : sampahList) {
+                if (item.getTitle().toLowerCase().contains(query.toLowerCase())) {
+                    filteredList.add(item);
+                }
             }
         }
         updateUI();
@@ -68,35 +72,45 @@ public class InformasiAnorganikActivity extends AppCompatActivity {
 
     private void updateUI() {
         container.removeAllViews();
-        LayoutInflater inflater = LayoutInflater.from(this);
-        for (String item : filteredList) {
-            View view = inflater.inflate(R.layout.item_sampah_anorganik, container, false);
-            TextView titleTextView = view.findViewById(R.id.titleTextView);
+        for (SampahItem item : filteredList) {
+            View view = LayoutInflater.from(this).inflate(R.layout.item_sampah, container, false);
+            TextView title = view.findViewById(R.id.sampahTitle);
+            ImageView imageView = view.findViewById(R.id.imageView);
             Button viewMoreButton = view.findViewById(R.id.viewMoreButton);
-            titleTextView.setText(item);
 
-            viewMoreButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent;
-                    switch (item) {
-                        case "Sampah Botol Plastik":
-                            intent = new Intent(InformasiAnorganikActivity.this, SampahBotolPlastikActivity.class);
-                            break;
-                        case "Sampah Kaleng":
-                            intent = new Intent(InformasiAnorganikActivity.this, SampahKalengActivity.class);
-                            break;
-                        case "Sampah Kardus":
-                            intent = new Intent(InformasiAnorganikActivity.this, SampahKardusActivity.class);
-                            break;
-                        default:
-                            return;
-                    }
-                    startActivity(intent);
-                }
+            title.setText(item.getTitle());
+            imageView.setImageResource(item.getImageResId());
+
+            viewMoreButton.setOnClickListener(v -> {
+                Intent intent = new Intent(InformasiAnorganikActivity.this, item.getActivityClass());
+                startActivity(intent);
             });
 
             container.addView(view);
+        }
+    }
+
+    private static class SampahItem {
+        private final String title;
+        private final Class<?> activityClass;
+        private final int imageResId;
+
+        public SampahItem(String title, Class<?> activityClass, int imageResId) {
+            this.title = title;
+            this.activityClass = activityClass;
+            this.imageResId = imageResId;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public Class<?> getActivityClass() {
+            return activityClass;
+        }
+
+        public int getImageResId() {
+            return imageResId;
         }
     }
 }

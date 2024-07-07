@@ -51,11 +51,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- Item list will be dynamically added here -->
-
             </LinearLayout>
 
-            <!-- Empty view to provide padding space at the bottom -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="100dp" />
