@@ -16,8 +16,34 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Your content goes here -->
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="History Transaksi"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:paddingBottom="16dp"/>
 
+        <!-- Search View -->
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="search"
+            android:background="@android:drawable/edit_text"
+            android:iconifiedByDefault="false"
+            android:layout_marginBottom="16dp"
+            />
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="8dp" />
     </LinearLayout>
 
     <!-- Bottom App Bar with Bottom Navigation View -->
@@ -26,7 +52,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-
         app:fabCradleMargin="16dp"
         app:fabCradleRoundedCornerRadius="28dp"
         app:fabCradleVerticalOffset="10dp"
