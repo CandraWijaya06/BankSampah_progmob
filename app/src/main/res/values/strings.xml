@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ProgmobBank</string>
+    <string name="select">Kategori Sampah</string>
+
 </resources>
