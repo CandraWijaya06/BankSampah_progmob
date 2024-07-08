@@ -1,7 +1,7 @@
 package com.example.progmobbank;
 
 import android.content.Intent;
-import android.content.SharedPreferences;  // Import SharedPreferences
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -83,7 +83,6 @@ public class LoginActivity extends AppCompatActivity {
 
             try {
                 String apiUrl = Db_konek.urlLogin;
-                // Menyandikan parameter query untuk menghindari karakter yang tidak diinginkan
                 String queryParams = "?username=" + URLEncoder.encode(username, "UTF-8") + "&password=" + URLEncoder.encode(password, "UTF-8");
                 URL url = new URL(apiUrl + queryParams);
 
@@ -120,21 +119,29 @@ public class LoginActivity extends AppCompatActivity {
             String status = jsonResponse.getString("status");
 
             if (status.equals("success")) {
-                String userId = jsonResponse.getJSONObject("user").getString("userId");
-                String userName = jsonResponse.getJSONObject("user").getString("username");  // Asumsikan ada field username di response JSON
+                JSONObject user = jsonResponse.getJSONObject("user");
+                String userId = user.getString("userId");
+                String userName = user.getString("username");      // Ambil nama pengguna
+                String userStatus = user.getString("userStatus");  // Ambil status pengguna
 
                 SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("userId", userId);  // Simpan userId ke dalam session
-                editor.putString("userName", userName);  // Simpan userName ke dalam session
+                editor.putString("userId", userId);
+                editor.putString("userName", userName);      // Simpan nama pengguna
+                editor.putString("userStatus", userStatus);  // Simpan status pengguna
                 editor.apply();
 
                 Toast.makeText(LoginActivity.this, jsonResponse.getString("message"), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LoginActivity.this, BaseActivity.class);
+
+                Intent intent;
+                if (userStatus.equals("admin")) {
+                    intent = new Intent(LoginActivity.this, BaseActivityAdmin.class);  // Arahkan ke BaseActivityAdmin jika admin
+                } else {
+                    intent = new Intent(LoginActivity.this, BaseActivity.class);  // Arahkan ke BaseActivity jika user
+                }
                 startActivity(intent);
                 finish();
-            }
-            else {
+            } else {
                 Toast.makeText(LoginActivity.this, jsonResponse.getString("message"), Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException e) {
