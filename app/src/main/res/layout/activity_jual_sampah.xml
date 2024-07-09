@@ -128,7 +128,10 @@
                 android:layout_marginTop="10dp"
                 android:hint="Masukkan Tanggal"
                 android:padding="15dp"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:focusable="false"
+                android:clickable="true" />
+
 
             <TextView
                 android:layout_width="match_parent"

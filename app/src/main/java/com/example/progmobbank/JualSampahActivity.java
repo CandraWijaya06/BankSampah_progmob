@@ -1,5 +1,6 @@
 package com.example.progmobbank;
 
+import android.app.DatePickerDialog;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -23,7 +24,10 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class JualSampahActivity extends AppCompatActivity {
 
@@ -33,6 +37,7 @@ public class JualSampahActivity extends AppCompatActivity {
     private ArrayList<String> categoryNames;
     private ArrayList<Integer> categoryIds;
     private ArrayList<String> categoryPrices;
+    private final Calendar calendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +60,9 @@ public class JualSampahActivity extends AppCompatActivity {
         String userName = sharedPreferences.getString("userName", "");  // Default ke string kosong jika tidak ada
         namaPengguna.setText(userName);
 
+        // Setup listener untuk tanggal penyetoran
+        tanggalPenyetoran.setOnClickListener(v -> showDatePickerDialog());
+
         // Setup listener untuk tombol Jual Sekarang
         Button jualButton = findViewById(R.id.JualButton);
         jualButton.setOnClickListener(v -> {
@@ -69,9 +77,9 @@ public class JualSampahActivity extends AppCompatActivity {
             String harga = hargaPerKg.getText().toString();
             String tanggal = tanggalPenyetoran.getText().toString();
             String alamatSampah = alamat.getText().toString();
-            String userId = sharedPreferences.getString("userId", "");  // Default ke string kosong jika tidak ada
+            String username = namaPengguna.getText().toString();  // Mengambil username dari TextView
 
-            if (berat.isEmpty() || tanggal.isEmpty() || alamatSampah.isEmpty()) {
+            if (berat.isEmpty() || tanggal.isEmpty() || alamatSampah.isEmpty() || username.isEmpty()) {
                 Toast.makeText(this, "Silakan isi semua data", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -87,7 +95,7 @@ public class JualSampahActivity extends AppCompatActivity {
                     connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 
                     // Kirim data ke server
-                    String postData = "userId=" + URLEncoder.encode(userId, "UTF-8") +
+                    String postData = "username=" + URLEncoder.encode(username, "UTF-8") +
                             "&kategoriId=" + URLEncoder.encode(String.valueOf(kategoriId), "UTF-8") +
                             "&beratKg=" + URLEncoder.encode(berat, "UTF-8") +
                             "&hargaPerKg=" + URLEncoder.encode(harga, "UTF-8") +
@@ -109,8 +117,12 @@ public class JualSampahActivity extends AppCompatActivity {
                     reader.close();
                     connection.disconnect();
 
+                    // Log respons dari server
+                    String response = result.toString();
+                    Log.d("JualSampahActivity", "Response: " + response);
+
                     // Parse JSON response
-                    runOnUiThread(() -> handleJualSampahResponse(result.toString()));
+                    runOnUiThread(() -> handleJualSampahResponse(response));
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -125,6 +137,28 @@ public class JualSampahActivity extends AppCompatActivity {
             String selectedCategoryPrice = getCategoryPrice(selectedCategoryId);
             hargaPerKg.setText(selectedCategoryPrice);
         });
+    }
+
+    private void showDatePickerDialog() {
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                JualSampahActivity.this,
+                (view, year1, monthOfYear, dayOfMonth) -> {
+                    calendar.set(Calendar.YEAR, year1);
+                    calendar.set(Calendar.MONTH, monthOfYear);
+                    calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                    updateLabel();
+                }, year, month, day);
+        datePickerDialog.show();
+    }
+
+    private void updateLabel() {
+        String myFormat = "yyyy-MM-dd"; // Format tanggal yang diinginkan
+        SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
+        tanggalPenyetoran.setText(dateFormat.format(calendar.getTime()));
     }
 
     private String getCategoryPrice(int kategoriId) {
@@ -181,8 +215,12 @@ public class JualSampahActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(JualSampahActivity.this, "Gagal mengambil data kategori", Toast.LENGTH_SHORT).show();
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Toast.makeText(JualSampahActivity.this, "Terjadi kesalahan dalam parsing data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 e.printStackTrace();
+                Toast.makeText(JualSampahActivity.this, "Terjadi kesalahan: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -201,6 +239,9 @@ public class JualSampahActivity extends AppCompatActivity {
             }
 
         } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Terjadi kesalahan dalam parsing data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(this, "Terjadi kesalahan: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
