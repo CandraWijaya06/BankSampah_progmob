@@ -1,6 +1,8 @@
 package com.example.progmobbank;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
@@ -84,50 +87,8 @@ public class JualSampahActivity extends AppCompatActivity {
                 return;
             }
 
-            // Kirim data penjualan ke API
-            new Thread(() -> {
-                try {
-                    String urlString = Db_konek.urlJual;
-                    URL url = new URL(urlString);
-                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                    connection.setRequestMethod("POST");
-                    connection.setDoOutput(true);
-                    connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-
-                    // Kirim data ke server
-                    String postData = "username=" + URLEncoder.encode(username, "UTF-8") +
-                            "&kategoriId=" + URLEncoder.encode(String.valueOf(kategoriId), "UTF-8") +
-                            "&beratKg=" + URLEncoder.encode(berat, "UTF-8") +
-                            "&hargaPerKg=" + URLEncoder.encode(harga, "UTF-8") +
-                            "&tanggalPenyetoran=" + URLEncoder.encode(tanggal, "UTF-8") +
-                            "&alamat=" + URLEncoder.encode(alamatSampah, "UTF-8");
-
-                    OutputStream outputStream = connection.getOutputStream();
-                    outputStream.write(postData.getBytes("UTF-8"));
-                    outputStream.flush();
-                    outputStream.close();
-
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                    StringBuilder result = new StringBuilder();
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        result.append(line);
-                    }
-
-                    reader.close();
-                    connection.disconnect();
-
-                    // Log respons dari server
-                    String response = result.toString();
-                    Log.d("JualSampahActivity", "Response: " + response);
-
-                    // Parse JSON response
-                    runOnUiThread(() -> handleJualSampahResponse(response));
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }).start();
+            // Menampilkan dialog konfirmasi
+            showConfirmationDialog(username, kategoriId, berat, harga, tanggal, alamatSampah);
         });
 
         // Setup listener untuk kategori AutoCompleteTextView
@@ -168,6 +129,73 @@ public class JualSampahActivity extends AppCompatActivity {
             }
         }
         return "";
+    }
+
+    private void showConfirmationDialog(String username, int kategoriId, String berat, String harga, String tanggal, String alamat) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Apakah Anda yakin ingin menjual sampah dengan data berikut?\n\n" +
+                        "Kategori: " + categoryNames.get(categoryIds.indexOf(kategoriId)) + "\n" +
+                        "Berat: " + berat + " kg\n" +
+                        "Harga: Rp " + harga + "/kg\n" +
+                        "Tanggal: " + tanggal + "\n" +
+                        "Alamat: " + alamat)
+                .setPositiveButton("Jual Sekarang", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        jualSampah(username, kategoriId, berat, harga, tanggal, alamat);
+                    }
+                })
+                .setNegativeButton("Kembali", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+        builder.create().show();
+    }
+
+    private void jualSampah(String username, int kategoriId, String berat, String harga, String tanggal, String alamat) {
+        new Thread(() -> {
+            try {
+                String urlString = Db_konek.urlJual;
+                URL url = new URL(urlString);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("POST");
+                connection.setDoOutput(true);
+                connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+
+                // Kirim data ke server
+                String postData = "username=" + URLEncoder.encode(username, "UTF-8") +
+                        "&kategoriId=" + URLEncoder.encode(String.valueOf(kategoriId), "UTF-8") +
+                        "&beratKg=" + URLEncoder.encode(berat, "UTF-8") +
+                        "&hargaPerKg=" + URLEncoder.encode(harga, "UTF-8") +
+                        "&tanggalPenyetoran=" + URLEncoder.encode(tanggal, "UTF-8") +
+                        "&alamat=" + URLEncoder.encode(alamat, "UTF-8");
+
+                OutputStream outputStream = connection.getOutputStream();
+                outputStream.write(postData.getBytes("UTF-8"));
+                outputStream.flush();
+                outputStream.close();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                StringBuilder result = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
+                }
+
+                reader.close();
+                connection.disconnect();
+
+                // Log respons dari server
+                String response = result.toString();
+                Log.d("JualSampahActivity", "Response: " + response);
+
+                // Parse JSON response
+                runOnUiThread(() -> handleJualSampahResponse(response));
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
     private class FetchCategoriesTask extends AsyncTask<String, Void, String> {
@@ -234,6 +262,9 @@ public class JualSampahActivity extends AppCompatActivity {
             if ("success".equals(status)) {
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
                 // Tambahkan aksi setelah berhasil, misalnya kembali ke halaman utama atau lainnya
+                Intent intent = new Intent(JualSampahActivity.this, BaseActivity.class);
+                startActivity(intent);
+                finish();
             } else {
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
             }
