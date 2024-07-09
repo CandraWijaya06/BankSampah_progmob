@@ -14,6 +14,7 @@ public class UserActivity extends AppCompatActivity {
 
     private TextView userName;
     private Button logoutButton;
+    private Button editProfileButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class UserActivity extends AppCompatActivity {
 
         userName = findViewById(R.id.userName);
         logoutButton = findViewById(R.id.logoutButton);
+        editProfileButton = findViewById(R.id.button_edit_profile);
 
         // Ambil nama pengguna dari SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
@@ -60,6 +62,12 @@ public class UserActivity extends AppCompatActivity {
 
         // Setup Logout Button
         logoutButton.setOnClickListener(v -> showLogoutConfirmationDialog());
+
+        // Setup Edit Profile Button
+        editProfileButton.setOnClickListener(v -> {
+            Intent intent = new Intent(UserActivity.this, UserProfilActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void showLogoutConfirmationDialog() {
