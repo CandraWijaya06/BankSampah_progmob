@@ -59,5 +59,15 @@
             android:text="Simpan"
             android:onClick="onSimpanClick" />
 
+
+        <Button
+            android:id="@+id/buttonHapusAkun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hapus Akun"
+            android:layout_marginTop="16dp"/>
+
+
+
     </LinearLayout>
 </ScrollView>

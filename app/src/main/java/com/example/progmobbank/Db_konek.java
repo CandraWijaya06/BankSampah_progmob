@@ -9,4 +9,6 @@ public class Db_konek {
     public static final String urlKategori = "http://"+ip+"/banksampah/get_kategori.php";
     public static final String urlUserProfile = "http://" + ip + "/banksampah/api_get_user_profil.php";
     public static final String urlUpdateUserProfile = "http://" + ip + "/banksampah/api_update_user_profil.php";
+    public static final String urlDeleteAccount = "http://" + ip + "/banksampah/api_delete_user.php";
+
 }

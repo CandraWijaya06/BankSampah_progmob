@@ -1,5 +1,7 @@
 package com.example.progmobbank;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,9 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -20,7 +26,7 @@ import java.net.URLEncoder;
 public class UserProfilActivity extends AppCompatActivity {
 
     private EditText editTextNama, editTextEmail, editTextNoTelp;
-    private Button buttonSimpan;
+    private Button buttonSimpan, buttonHapusAkun;
     private static final String TAG = "UserProfilActivity";
 
     @Override
@@ -33,6 +39,7 @@ public class UserProfilActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextNoTelp = findViewById(R.id.editTextNoTelp);
         buttonSimpan = findViewById(R.id.buttonSimpan);
+        buttonHapusAkun = findViewById(R.id.buttonHapusAkun);
 
         // Ambil data pengguna dari SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
@@ -46,6 +53,14 @@ public class UserProfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 simpanPerubahan();
+            }
+        });
+
+        // Setup onClickListener untuk tombol Hapus Akun
+        buttonHapusAkun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDeleteConfirmationDialog();
             }
         });
     }
@@ -66,6 +81,27 @@ public class UserProfilActivity extends AppCompatActivity {
         String username = sharedPreferences.getString("userName", "");
 
         new UpdateUserDataTask().execute(username, nama, email, noTelp);
+    }
+
+    private void showDeleteConfirmationDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Konfirmasi Hapus Akun")
+                .setMessage("Apakah Anda yakin ingin menghapus akun?")
+                .setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        hapusAkun();
+                    }
+                })
+                .setNegativeButton("Kembali", null)
+                .show();
+    }
+
+    private void hapusAkun() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
+        String username = sharedPreferences.getString("userName", "");
+
+        new DeleteAccountTask().execute(username);
     }
 
     private class GetUserDataTask extends AsyncTask<String, Void, String> {
@@ -184,6 +220,77 @@ public class UserProfilActivity extends AppCompatActivity {
                 }
             } else {
                 Log.e(TAG, "No response from API");
+            }
+        }
+    }
+
+    private class DeleteAccountTask extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            String username = params[0];
+            String urlString = Db_konek.urlDeleteAccount + "?username=" + username;
+            try {
+                URL url = new URL(urlString);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setRequestMethod("GET");
+                int responseCode = urlConnection.getResponseCode();
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                    String inputLine;
+                    StringBuilder response = new StringBuilder();
+                    while ((inputLine = in.readLine()) != null) {
+                        response.append(inputLine);
+                    }
+                    in.close();
+                    return response.toString();
+                } else {
+                    Log.e(TAG, "Server returned non-OK status: " + responseCode);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.e(TAG, "Error during API request: " + e.getMessage());
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            if (result != null) {
+                try {
+                    Log.d(TAG, "API Response: " + result);
+                    JSONObject jsonObject = new JSONObject(result);
+                    String status = jsonObject.getString("status");
+                    String message = jsonObject.getString("message");
+                    if (status.equals("success")) {
+                        // Hapus session dari SharedPreferences
+                        SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.remove("userId");
+                        editor.remove("userName");
+                        editor.apply();
+
+                        // Tampilkan notifikasi bahwa akun berhasil dihapus
+                        Toast.makeText(UserProfilActivity.this, "Akun berhasil dihapus", Toast.LENGTH_SHORT).show();
+
+                        // Arahkan ke LoginActivity setelah menghapus akun
+                        Intent intent = new Intent(UserProfilActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else if (status.equals("error")) {
+                        // Tampilkan pesan error jika username tidak valid
+                        Toast.makeText(UserProfilActivity.this, message, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.e(TAG, "Unknown status: " + status);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Log.e(TAG, "JSON Parsing error: " + e.getMessage());
+                }
+            } else {
+                Log.e(TAG, "No response from API");
+                // Tampilkan pesan error jika tidak ada respons dari API
+                Toast.makeText(UserProfilActivity.this, "Tidak ada respons dari server", Toast.LENGTH_SHORT).show();
             }
         }
     }
