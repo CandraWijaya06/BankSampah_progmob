@@ -1,7 +1,7 @@
 package com.example.progmobbank;
 
 public class Db_konek {
-    public static  String ip = "172.16.153.248:80";
+    public static  String ip = "192.168.1.8:80";
 
     public static final String urlLogin = "http://"+ip+"/banksampah/api_login.php";
     public static final String urlRegister = "http://"+ip+"/banksampah/api_register.php";
@@ -10,5 +10,7 @@ public class Db_konek {
     public static final String urlUserProfile = "http://" + ip + "/banksampah/api_get_user_profil.php";
     public static final String urlUpdateUserProfile = "http://" + ip + "/banksampah/api_update_user_profil.php";
     public static final String urlDeleteAccount = "http://" + ip + "/banksampah/api_delete_user.php";
+    public static final String urlGetHistory = "http://" + ip + "/banksampah/history.php";
+
 
 }
