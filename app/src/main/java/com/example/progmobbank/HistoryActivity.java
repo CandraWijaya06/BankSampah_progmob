@@ -71,9 +71,5 @@ public class HistoryActivity extends AppCompatActivity {
             return false;
         });
 
-        // Setup FAB
-        findViewById(R.id.fab).setOnClickListener(view -> {
-            // Handle klik FAB
-        });
     }
 }
