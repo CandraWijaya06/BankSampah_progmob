@@ -39,33 +39,7 @@
                 android:text="Logout"
                 android:onClick="onLogoutClick" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="16dp"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:background="@drawable/rounded_rectangle"
-                android:gravity="center">
 
-                <TextView
-                    android:id="@+id/pointsText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Poin ThreeStorationmu"
-                    android:textSize="18sp"
-                    android:gravity="center" />
-
-                <TextView
-                    android:id="@+id/pointsValueText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="25.000 Poin"
-                    android:textSize="24sp"
-                    android:textColor="@android:color/holo_green_dark"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
