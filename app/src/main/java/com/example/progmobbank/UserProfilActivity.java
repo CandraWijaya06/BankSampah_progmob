@@ -34,21 +34,18 @@ public class UserProfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profil);
 
-        // Inisialisasi Views
         editTextNama = findViewById(R.id.editTextNama);
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextNoTelp = findViewById(R.id.editTextNoTelp);
         buttonSimpan = findViewById(R.id.buttonSimpan);
         buttonHapusAkun = findViewById(R.id.buttonHapusAkun);
 
-        // Ambil data pengguna dari SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
         String username = sharedPreferences.getString("userName", "");
 
-        // Ambil data pengguna dari API untuk ditampilkan di EditText
+
         new GetUserDataTask().execute(username);
 
-        // Setup onClickListener untuk tombol Simpan
         buttonSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +53,6 @@ public class UserProfilActivity extends AppCompatActivity {
             }
         });
 
-        // Setup onClickListener untuk tombol Hapus Akun
         buttonHapusAkun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,13 +66,11 @@ public class UserProfilActivity extends AppCompatActivity {
         String email = editTextEmail.getText().toString().trim();
         String noTelp = editTextNoTelp.getText().toString().trim();
 
-        // Validasi input
         if (nama.isEmpty() || email.isEmpty() || noTelp.isEmpty()) {
             Toast.makeText(UserProfilActivity.this, "Harap isi semua kolom", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Simpan perubahan ke API
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
         String username = sharedPreferences.getString("userName", "");
 

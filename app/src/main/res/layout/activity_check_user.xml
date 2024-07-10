@@ -30,8 +30,6 @@
                 android:textColor="@android:color/black"
                 android:paddingBottom="16dp" />
 
-            <!-- User items will be added here dynamically -->
-
         </LinearLayout>
 
     </ScrollView>

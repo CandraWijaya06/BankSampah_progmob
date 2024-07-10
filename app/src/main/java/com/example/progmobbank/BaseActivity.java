@@ -24,14 +24,11 @@ public class BaseActivity extends AppCompatActivity {
         userNameText = findViewById(R.id.userNameText);
         LinearLayout informasiSampahButton = findViewById(R.id.informasiSampahButton);
 
-        // Ambil nama pengguna dari SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
         String userName = sharedPreferences.getString("userName", "");  // Default ke string kosong jika tidak ada
 
-        // Atur teks TextView dengan nama pengguna
         userNameText.setText(userName);
 
-        // Setup Bottom Navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home); // Set the default selected item
 
@@ -54,10 +51,6 @@ public class BaseActivity extends AppCompatActivity {
             return false;
         });
 
-        // Setup FAB
-        findViewById(R.id.fab).setOnClickListener(view -> {
-            // Handle FAB click
-        });
     }
 
 
@@ -76,14 +69,12 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     private void logoutUser() {
-        // Hapus session dari SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.remove("userId");
         editor.remove("userName");
         editor.apply();
 
-        // Arahkan ke LoginActivity setelah logout
         Intent intent = new Intent(BaseActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();

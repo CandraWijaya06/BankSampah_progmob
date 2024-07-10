@@ -35,9 +35,5 @@ public class NotifActivity extends AppCompatActivity {
             return false;
         });
 
-        // Setup FAB
-        findViewById(R.id.fab).setOnClickListener(view -> {
-            // Handle FAB click
-        });
     }
 }

@@ -25,14 +25,11 @@ public class UserActivity extends AppCompatActivity {
         logoutButton = findViewById(R.id.logoutButton);
         editProfileButton = findViewById(R.id.button_edit_profile);
 
-        // Ambil nama pengguna dari SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
         String userNameString = sharedPreferences.getString("userName", "");  // Default ke string kosong jika tidak ada
 
-        // Atur teks TextView dengan nama pengguna
         userName.setText(userNameString);
 
-        // Setup Bottom Navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.manage_accounts); // Set the default selected item
 

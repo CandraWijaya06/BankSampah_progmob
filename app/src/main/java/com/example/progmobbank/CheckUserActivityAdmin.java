@@ -71,16 +71,14 @@ public class CheckUserActivityAdmin extends AppCompatActivity {
     }
 
     private void addUserToLayout(JSONObject userObject) {
-        // Inflate layout item_user.xml
+
         View userView = LayoutInflater.from(this).inflate(R.layout.item_user, userListLayout, false);
 
-        // Initialize views
         TextView usernameTextView = userView.findViewById(R.id.textViewUsername);
         TextView namaTextView = userView.findViewById(R.id.textViewNama);
         TextView emailTextView = userView.findViewById(R.id.textViewEmail);
         TextView noTelpTextView = userView.findViewById(R.id.textViewNoTelp);
 
-        // Set data to views
         try {
             usernameTextView.setText("Username: " + userObject.getString("username"));
             namaTextView.setText("Nama: " + userObject.getString("nama"));
@@ -90,7 +88,6 @@ public class CheckUserActivityAdmin extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        // Add userView to userListLayout
         userListLayout.addView(userView);
     }
 }

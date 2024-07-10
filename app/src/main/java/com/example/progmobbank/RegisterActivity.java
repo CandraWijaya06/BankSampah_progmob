@@ -44,7 +44,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // Inisialisasi view
         usernameEditText = findViewById(R.id.usernameEditText);
         namaEditText = findViewById(R.id.namaEditText);
         emailEditText = findViewById(R.id.emailEditText);
@@ -54,7 +53,6 @@ public class RegisterActivity extends AppCompatActivity {
         daftarButton = findViewById(R.id.registerButton);
         alreadyHaveAccountTextView = findViewById(R.id.alreadyHaveAccountTextView);
 
-        // Set clickable text for CheckBox
         String termsText = "Saya setuju dengan Syarat dan Ketentuan serta Kebijakan Privasi";
         SpannableString spannableString = new SpannableString(termsText);
 
@@ -84,7 +82,6 @@ public class RegisterActivity extends AppCompatActivity {
         termsCheckBox.setMovementMethod(LinkMovementMethod.getInstance());
         termsCheckBox.setHighlightColor(ContextCompat.getColor(this, android.R.color.transparent));
 
-        // Aksi tombol daftar
         daftarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +89,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        // Aksi text view "Sudah punya akun? Masuk"
         alreadyHaveAccountTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
