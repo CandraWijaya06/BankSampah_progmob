@@ -97,6 +97,7 @@ public class KonfirmasiPesananActivityAdmin extends AppCompatActivity {
                         try {
                             JSONObject history = historyArray.getJSONObject(i);
                             String idJual = history.getString("id_jual");
+                            String username = history.getString("username");
                             String kategoriSampah = history.getString("kategori_sampah");
                             String beratKg = history.getString("berat_kg");
                             String hargaTotal = history.getString("harga_total");
@@ -115,6 +116,7 @@ public class KonfirmasiPesananActivityAdmin extends AppCompatActivity {
 
                             // Add data to itemLayout
                             addTextView(itemLayout, "ID Jual: " + idJual);
+                            addTextView(itemLayout, "Username: " + username);
                             addTextView(itemLayout, "Kategori: " + kategoriSampah);
                             addTextView(itemLayout, "Berat (kg): " + beratKg);
                             addTextView(itemLayout, "Total Harga: " + hargaTotal);
