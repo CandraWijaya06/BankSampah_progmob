@@ -1,5 +1,6 @@
 package com.example.progmobbank;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +45,28 @@ public class HistoryActivity extends AppCompatActivity {
 
         // Ambil data history dari API
         new GetHistoryTask().execute(username);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.history); // Set the default selected item
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Intent intent = null;
+            if (item.getItemId() == R.id.home) {
+                intent = new Intent(HistoryActivity.this, BaseActivity.class);
+            } else if (item.getItemId() == R.id.notifications) {
+                intent = new Intent(HistoryActivity.this, NotifActivity.class);
+            } else if (item.getItemId() == R.id.history) {
+                return true;
+            } else if (item.getItemId() == R.id.manage_accounts) {
+                intent = new Intent(HistoryActivity.this, UserActivity.class);
+            }
+
+            if (intent != null) {
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+            }
+            return false;
+        });
     }
 
     private class GetHistoryTask extends AsyncTask<String, Void, String> {
