@@ -1,16 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@drawable/background_gradient"
+    android:fitsSystemWindows="true"
+    tools:context=".BaseActivityAdmin">
 
-    <TextView
-        android:id="@+id/adminWelcomeTextView"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/adminWelcomeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome, Admin"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/optionTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pilih opsi yang ingin Anda edit/periksa!"
+                android:textSize="16sp"
+                android:layout_marginTop="24dp"
+                android:textColor="@android:color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:gravity="center">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp">
+
+                    <Button
+                        android:id="@+id/btnEditInformasiSampah"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Edit Informasi Sampah"
+                        android:background="@drawable/rounded_rectangle"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp">
+
+                    <Button
+                        android:id="@+id/btnEditKategoriSampah"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Edit Kategori Sampah"
+                        android:background="@drawable/rounded_rectangle"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp">
+
+                    <Button
+                        android:id="@+id/btnCheckUser"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Check User"
+                        android:background="@drawable/rounded_rectangle"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp">
+
+                    <Button
+                        android:id="@+id/btnKonfirmasiPesanan"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Konfirmasi Pesanan"
+                        android:background="@drawable/rounded_rectangle"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/green"
+        app:fabCradleMargin="16dp"
+        app:fabCradleRoundedCornerRadius="28dp"
+        app:fabCradleVerticalOffset="10dp"
+        app:fabAlignmentMode="center"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_base_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome, Admin"
-        android:textSize="18sp"
-        android:layout_gravity="center" />
-
-</LinearLayout>
+        app:layout_anchor="@id/bottom_app_bar"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/baseline_home_24"
+        app:maxImageSize="40dp"
+        app:tint="@color/lightgreen" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

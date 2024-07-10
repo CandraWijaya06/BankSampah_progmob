@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:fitsSystemWindows="true"
+    tools:context=".EditKategoriActivityAdmin">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layoutKategori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/editKategoriTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Kategori"
+                android:textSize="24sp"
+                android:layout_gravity="center"
+                android:textColor="@android:color/black"
+                android:paddingBottom="16dp" />
+
+            <ListView
+                android:id="@+id/listViewKategori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
+
+            <EditText
+                android:id="@+id/etNamaKategori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Kategori"
+                android:padding="10dp"
+                android:background="@drawable/edit_text_background"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/etHargaPerKg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Harga per Kg"
+                android:padding="10dp"
+                android:background="@drawable/edit_text_background"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btnUpdateKategori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update Kategori"
+                android:background="@color/green"
+                android:textColor="@android:color/white"
+                android:padding="16dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/green"
+        app:fabCradleMargin="16dp"
+        app:fabCradleRoundedCornerRadius="28dp"
+        app:fabCradleVerticalOffset="10dp"
+        app:fabAlignmentMode="center"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_edit_kategori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/bottom_app_bar"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/baseline_home_24"
+        app:maxImageSize="40dp"
+        app:tint="@color/lightgreen" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

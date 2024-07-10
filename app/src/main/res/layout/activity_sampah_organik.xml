@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sampah Organik"
-        android:textSize="24sp"/>
-</LinearLayout>
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Informasi Sampah Organik"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:paddingBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_rectangle"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sampah Organik"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:paddingBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sampah organik adalah jenis sampah yang berasal dari bahan-bahan alami yang dapat terurai secara biologis oleh mikroorganisme seperti bakteri dan jamur. Sampah ini umumnya berasal dari makhluk hidup seperti tumbuhan, hewan, dan manusia. Contoh-contoh sampah organik meliputi sisa makanan, daun dan ranting, kulit buah dan sayuran, serta sampah dapur. Sisa makanan mencakup nasi, sayuran, buah-buahan, daging, tulang, dan kulit buah yang dapat diolah menjadi kompos untuk pupuk alami. Daun-daun kering, ranting, dan sisa tanaman dari pemangkasan taman juga termasuk sampah organik yang bisa dijadikan kompos atau mulsa untuk mempertahankan kelembapan tanah dan mengurangi pertumbuhan gulma. Kulit buah dan sayuran seperti kulit pisang, jeruk, apel, kentang, dan sayuran lainnya kaya akan nutrisi dan sangat baik untuk pembuatan kompos. Sampah dapur seperti kulit telur, ampas kopi, teh celup, dan sisa bumbu dapur juga bisa diolah menjadi kompos yang berguna. Pengelolaan sampah organik umumnya melibatkan upaya daur ulang melalui komposting yang membantu mengurangi volume sampah yang dibuang ke tempat pembuangan akhir dan meningkatkan kesuburan tanah."
+                android:textSize="16sp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/viewMoreButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Informasi Organik"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+</ScrollView>

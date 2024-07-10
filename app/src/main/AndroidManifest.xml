@@ -39,6 +39,18 @@
             android:name=".BaseActivityAdmin"
             android:exported="false" />
         <activity
+            android:name=".CheckUserActivityAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".EditInformasiActivityAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".EditKategoriActivityAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".KonfirmasiPesananActivityAdmin"
+            android:exported="false" />
+        <activity
             android:name=".InformasiSampahActivity"
             android:exported="false" />
         <activity

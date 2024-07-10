@@ -1,50 +1,51 @@
 package com.example.progmobbank;
 
 public class Transaction {
-
+    private int idJual;
+    private String kategoriSampah;
+    private int beratKg;
+    private int hargaTotal;
+    private String tanggalPenyetoran; // Menggunakan String untuk representasi tanggal
+    private String alamat;
     private String status;
-    private String id;
-    private int image;
-    private String description;
-    private String date;
-    private String totalTransaction;
-    private int weight;
 
-    public Transaction(String status, String id, int image, String description, String date, String totalTransaction, int weight) {
+    public Transaction(int idJual, String kategoriSampah, int beratKg, int hargaTotal,
+                       String tanggalPenyetoran, String alamat, String status) {
+        this.idJual = idJual;
+        this.kategoriSampah = kategoriSampah;
+        this.beratKg = beratKg;
+        this.hargaTotal = hargaTotal;
+        this.tanggalPenyetoran = tanggalPenyetoran;
+        this.alamat = alamat;
         this.status = status;
-        this.id = id;
-        this.image = image;
-        this.description = description;
-        this.date = date;
-        this.totalTransaction = totalTransaction;
-        this.weight = weight;
+    }
+
+    // Getter untuk semua atribut
+    public int getIdJual() {
+        return idJual;
+    }
+
+    public String getKategoriSampah() {
+        return kategoriSampah;
+    }
+
+    public int getBeratKg() {
+        return beratKg;
+    }
+
+    public int getHargaTotal() {
+        return hargaTotal;
+    }
+
+    public String getTanggalPenyetoran() {
+        return tanggalPenyetoran;
+    }
+
+    public String getAlamat() {
+        return alamat;
     }
 
     public String getStatus() {
         return status;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public int getImage() {
-        return image;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public String getTotalTransaction() {
-        return totalTransaction;
-    }
-
-    public int getWeight() {
-        return weight;
     }
 }

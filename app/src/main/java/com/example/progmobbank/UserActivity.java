@@ -55,11 +55,6 @@ public class UserActivity extends AppCompatActivity {
             return false;
         });
 
-        // Setup FAB
-        findViewById(R.id.fab).setOnClickListener(view -> {
-            // Handle FAB click
-        });
-
         // Setup Logout Button
         logoutButton.setOnClickListener(v -> showLogoutConfirmationDialog());
 

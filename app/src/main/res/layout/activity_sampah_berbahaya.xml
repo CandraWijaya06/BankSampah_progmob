@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sampah Berbahaya"
-        android:textSize="24sp"/>
-</LinearLayout>
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Informasi Sampah Berbahaya"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:paddingBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_rectangle"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sampah Bebahaya"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:paddingBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sampah berbahaya adalah jenis sampah yang memiliki potensi untuk menimbulkan risiko serius bagi kesehatan manusia dan lingkungan jika tidak dikelola dengan benar. Jenis sampah ini mengandung bahan-bahan kimia, biologis, atau fisik yang dapat menyebabkan kerusakan
+                atau pencemaran. Contoh sampah berbahaya termasuk limbah medis seperti jarum suntik
+                dan obat-obatan kadaluarsa, baterai yang mengandung logam berat seperti merkuri dan timbal, serta bahan kimia beracun dari produk rumah tangga seperti pembersih rumah tangga, cat, dan pestisida. Sampah elektronik atau e-waste, seperti komputer dan televisi yang mengandung bahan berbahaya seperti kadmium dan timbal, juga termasuk dalam kategori sampah berbahaya. Pengelolaan sampah berbahaya memerlukan prosedur khusus, seperti pemilahan, penyimpanan dalam wadah yang aman, serta pembuangan atau daur ulang oleh fasilitas yang memiliki izin dan kapasitas untuk menangani jenis sampah ini secara aman. Tanpa penanganan yang tepat, sampah berbahaya dapat mencemari tanah, air, dan udara, serta menyebabkan dampak negatif yang signifikan pada kesehatan manusia dan ekosistem."
+                android:textSize="16sp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/viewMoreButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="List Sampah Berbahaya"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+</ScrollView>
