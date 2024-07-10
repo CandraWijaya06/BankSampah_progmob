@@ -107,7 +107,7 @@
                         android:id="@+id/btnKonfirmasiPesanan"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Konfirmasi Pesanan"
+                        android:text="Konfirmasi Transaksi"
                         android:background="@drawable/rounded_rectangle"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
