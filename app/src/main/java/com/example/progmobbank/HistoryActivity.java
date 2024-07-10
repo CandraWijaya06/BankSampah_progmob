@@ -85,8 +85,8 @@ public class HistoryActivity extends AppCompatActivity {
                         for (int i = 0; i < historyArray.length(); i++) {
                             JSONObject historyObject = historyArray.getJSONObject(i);
                             String kategoriSampah = historyObject.getString("kategori_sampah");
-                            double beratKg = historyObject.getDouble("berat_kg");
-                            double hargaTotal = historyObject.getDouble("harga_total");
+                            int beratKg = historyObject.getInt("berat_kg");
+                            int hargaTotal = historyObject.getInt ("harga_total");
                             String tanggalPenyetoran = historyObject.getString("tanggal_penyetoran");
                             String alamat = historyObject.getString("alamat");
                             String status = historyObject.getString("status");

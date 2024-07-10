@@ -2,13 +2,13 @@ package com.example.progmobbank;
 
 public class HistoryItem {
     private String kategoriSampah;
-    private double beratKg;
-    private double hargaTotal;
+    private int beratKg;
+    private int hargaTotal;
     private String tanggalPenyetoran;
     private String alamat;
     private String status;
 
-    public HistoryItem(String kategoriSampah, double beratKg, double hargaTotal, String tanggalPenyetoran, String alamat, String status) {
+    public HistoryItem(String kategoriSampah, int beratKg, int hargaTotal, String tanggalPenyetoran, String alamat, String status) {
         this.kategoriSampah = kategoriSampah;
         this.beratKg = beratKg;
         this.hargaTotal = hargaTotal;
@@ -21,11 +21,11 @@ public class HistoryItem {
         return kategoriSampah;
     }
 
-    public double getBeratKg() {
+    public int getBeratKg() {
         return beratKg;
     }
 
-    public double getHargaTotal() {
+    public int getHargaTotal() {
         return hargaTotal;
     }
 
