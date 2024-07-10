@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">ProgmobBank</string>
     <string name="select">Kategori Sampah</string>
+        <string-array name="status_options">
+            <item>Pending</item>
+            <item>Diterima</item>
+            <item>Ditolak</item>
+            <item>Terjual</item>
+        </string-array>
+
 
 </resources>

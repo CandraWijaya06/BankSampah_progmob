@@ -14,6 +14,8 @@ public class Db_konek {
     public static final String urlGetUser = "http://" + ip + "/banksampah/get_user.php";
     public static final String urlEditKategori = "http://" + ip + "/banksampah/edit_kategori.php";
     public static final String UrlGetKategori = "http://" + ip + "/banksampah/kategori.php";
+    public static final String UrlGetAllHistory = "http://" + ip + "/banksampah/api_get_all_history.php";
+    public static final String UrlUpdateStatus = "http://" + ip + "/banksampah/update_status.php";
 
 
 }
