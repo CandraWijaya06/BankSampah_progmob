@@ -44,23 +44,7 @@
                 android:layout_marginTop="16dp"
                 android:gravity="center">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp">
 
-                    <Button
-                        android:id="@+id/btnEditInformasiSampah"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="Edit Informasi Sampah"
-                        android:background="@drawable/rounded_rectangle"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
