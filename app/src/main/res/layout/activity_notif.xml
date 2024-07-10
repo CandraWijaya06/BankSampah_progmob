@@ -19,8 +19,7 @@
             android:id="@+id/no_notifications_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/info"
-            />
+            android:src="@drawable/info" />
 
         <TextView
             android:id="@+id/no_notifications_text"
