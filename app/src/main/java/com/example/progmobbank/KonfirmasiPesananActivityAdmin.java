@@ -50,7 +50,7 @@ public class KonfirmasiPesananActivityAdmin extends AppCompatActivity {
 
     private void fetchData() {
         // Show progress indicator or other UI feedback if needed
-        new FetchDataTask().execute(Db_konek.UrlGetAllHistory); // Ganti dengan URL API Anda
+        new FetchDataTask().execute(Db_konek.UrlGetAllHistory);
     }
 
     private class FetchDataTask extends AsyncTask<String, Void, String> {
@@ -109,10 +109,12 @@ public class KonfirmasiPesananActivityAdmin extends AppCompatActivity {
                             itemLayout.setOrientation(LinearLayout.VERTICAL);
                             itemLayout.setPadding(16, 16, 16, 16);
                             itemLayout.setBackgroundResource(R.drawable.rounded_rectangle);
-                            itemLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.MATCH_PARENT,
                                     LinearLayout.LayoutParams.WRAP_CONTENT
-                            ));
+                            );
+                            layoutParams.setMargins(0, 0, 0, 50); // Menambahkan margin bawah
+                            itemLayout.setLayoutParams(layoutParams);
 
                             // Add data to itemLayout
                             addTextView(itemLayout, "ID Jual: " + idJual);
@@ -171,7 +173,7 @@ public class KonfirmasiPesananActivityAdmin extends AppCompatActivity {
             String newStatus = params[1];
             StringBuilder result = new StringBuilder();
             try {
-                URL url = new URL(Db_konek.UrlUpdateStatus); // Ganti dengan URL API Anda
+                URL url = new URL(Db_konek.UrlUpdateStatus);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
                 connection.setDoOutput(true);
