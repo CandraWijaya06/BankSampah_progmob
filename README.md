@@ -1,9 +1,5 @@
-# **Skinalyze Project 🌟✨**  
-*Your personalized skincare companion, powered by AI and innovative features.*
-
----
-
-![Mockup Preview](mockup.png)
+# **Skinalyze : Know Your Skin, Perfect Your Skincare Routine 🌟✨**  
+*Your personalized skincare companion*
 
 ---
 
@@ -46,34 +42,25 @@
 
 | Name                    | Role                | GitHub                                     |
 | ----------------------- | ------------------- | ------------------------------------------ |
-| [Your Name]             | Mobile Development  | [![GitHub](https://img.shields.io/badge/-GitHub-black?logo=github)](https://github.com/yourgithub) |
-| [Team Member Name]      | Machine Learning    | [![GitHub](https://img.shields.io/badge/-GitHub-black?logo=github)](https://github.com/membergithub) |
-| [Another Team Member]   | API Development     | [![GitHub](https://img.shields.io/badge/-GitHub-black?logo=github)](https://github.com/membergithub) |
+| [Candra Wijaya]             | Mobile Development  | [![GitHub](https://img.shields.io/badge/-GitHub-black?logo=github)](https://github.com/CandraWijaya12345) |
+| [Prajna Dharma]      | Mobile Development    | [![GitHub](https://img.shields.io/badge/-GitHub-black?logo=github)](https://github.com/Prajnadharma) |
+| [Gita Sri Adnyani]   | Machine Learning     | [![GitHub](https://img.shields.io/badge/-GitHub-black?logo=github)](https://github.com/gitasriadnyani) |
+| [Indri Cahyani]             | Machine Learning  | [![GitHub](https://img.shields.io/badge/-GitHub-black?logo=github)](https://github.com/indrichyni) |
+| [Christina Ayuni]      | Machine Learning    | [![GitHub](https://img.shields.io/badge/-GitHub-black?logo=github)](https://github.com/chrisayuni) |
+| [Sindhu Wedana]   | Cloud Computing     | [![GitHub](https://img.shields.io/badge/-GitHub-black?logo=github)](https://github.com/Wahsindhu) |
+| [Ardhiyana Permana]   | Cloud Computing     | [![GitHub](https://img.shields.io/badge/-GitHub-black?logo=github)](https://github.com/ardhi024) |
 
 ---
 
 ## 🔧 Repository  
 
-- **[Frontend Development](https://github.com/yourfrontendrepo)**  
+- **[Frontend Development](https://github.com/C242-PS091-Capstone-Bangkit/app-capstone)**  
   Repository for Android front-end, UI/UX design, and integration.
 
-- **[Machine Learning Models](https://github.com/yourmlrepo)**  
+- **[Machine Learning Models](https://github.com/C242-PS091-Capstone-Bangkit/ML-Project)**  
   Repository for TensorFlow Lite-based AI skin analysis models.
 
-- **[Backend and APIs](https://github.com/yourbackendrepo)**  
+- **[Backend and APIs](https://github.com/C242-PS091-Capstone-Bangkit/backend)**  
   Repository for APIs and backend services powering Skinalyze.
-
----
-
-## 📄 License  
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## 📞 Contact  
-For questions or collaborations, please contact:  
-
-- **Your Name**: [your.email@example.com](mailto:your.email@example.com)  
-- **GitHub**: [Skinalyze Repository](https://github.com/yourrepository)  
 
 ---
