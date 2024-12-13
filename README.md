@@ -67,14 +67,14 @@
 
 ## 📸 Screenshots  
 
-| **Home Screen**                          | **Skin Analysis**                        |  
-|------------------------------------------|------------------------------------------|  
-| ![Home Screen](https://via.placeholder.com/200x400?text=Home+Screen) | ![Skin Analysis](https://via.placeholder.com/200x400?text=Skin+Analysis) |  
+| **Home Screen**                          | **Skin Analysis**                        | **Personalized Recommendations**         |  
+|------------------------------------------|------------------------------------------|------------------------------------------|  
+| ![Home Screen](https://via.placeholder.com/200x400?text=Home+Screen) | ![Skin Analysis](https://via.placeholder.com/200x400?text=Skin+Analysis) | ![Recommendations](https://via.placeholder.com/200x400?text=Recommendations) |  
 
-| **Personalized Recommendations**         | **Reminders Page**                       |  
-|------------------------------------------|------------------------------------------|  
-| ![Recommendations](https://via.placeholder.com/200x400?text=Recommendations) | ![Reminders](https://via.placeholder.com/200x400?text=Reminders+Page) |  
+| **Reminders Page**                       | **History Log**                          | **Personalized Recommendations**         |   
+|------------------------------------------|------------------------------------------|------------------------------------------|  
+| ![Reminders](https://via.placeholder.com/200x400?text=Reminders+Page) | ![History Log](https://via.placeholder.com/200x400?text=History+Log) | ![Recommendations](https://via.placeholder.com/200x400?text=Recommendations) |
 
-| **History Log**                          | **Settings Page**                        |  
-|------------------------------------------|------------------------------------------|  
-| ![History Log](https://via.placeholder.com/200x400?text=History+Log) | ![Settings](https://via.placeholder.com/200x400?text=Settings+Page) |  
+---
+
+Gambar-gambar ini memberikan gambaran antarmuka pengguna **Skinalyze** yang intuitif dan mudah digunakan, memandu pengguna dari proses analisis kulit hingga pengelolaan rutinitas perawatan kulit.  
