@@ -67,11 +67,11 @@
 
 ## 📸 Screenshots  
 
-| **Home Screen**                          | **Skin Analysis**                        | **Personalized Recommendations**         |  
+| **Home Screen**                          | **Skin Analysis**                        | **Product Recommendations**         |  
 |------------------------------------------|------------------------------------------|------------------------------------------|  
 | ![Home Screen](https://via.placeholder.com/200x400?text=Home+Screen) | ![Skin Analysis](https://via.placeholder.com/200x400?text=Skin+Analysis) | ![Recommendations](https://via.placeholder.com/200x400?text=Recommendations) |  
 
-| **Reminders Page**                       | **History Log**                          | **Personalized Recommendations**         |   
+| **Reminders Page**                       | **History Log**                          | **Profile**         |   
 |------------------------------------------|------------------------------------------|------------------------------------------|  
 | ![Reminders](https://via.placeholder.com/200x400?text=Reminders+Page) | ![History Log](https://via.placeholder.com/200x400?text=History+Log) | ![Recommendations](https://via.placeholder.com/200x400?text=Recommendations) |
 
