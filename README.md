@@ -69,7 +69,7 @@
 
 | **Home Screen**                          | **Skin Analysis**                        | **Product Recommendations**         |  
 |------------------------------------------|------------------------------------------|------------------------------------------|  
-|![Screenshot 2024-12-13 162956](https://github.com/user-attachments/assets/4798f36b-9faf-4317-a4a8-ae2e6e80a753) | ![Skin Analysis](https://via.placeholder.com/200x400?text=Skin+Analysis) | ![Recommendations](https://via.placeholder.com/200x400?text=Recommendations) |  
+|![Screenshot 2024-12-13 162956](https://github.com/user-attachments/assets/4798f36b-9faf-4317-a4a8-ae2e6e80a753) | <img width="304" alt="Scan" src="https://github.com/user-attachments/assets/30468bd5-a219-470a-9a09-6dcd2f549133" /> | ![Recommendations](https://via.placeholder.com/200x400?text=Recommendations) |  
 
 | **Reminders Page**                       | **History Log**                          | **Profile**         |   
 |------------------------------------------|------------------------------------------|------------------------------------------|  
