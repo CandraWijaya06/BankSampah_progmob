@@ -67,14 +67,14 @@
 
 ## 📸 Screenshots  
 
-| **Home Screen**                          | **Skin Analysis**                        | **Personalized Recommendations**         |  
-|------------------------------------------|------------------------------------------|------------------------------------------|  
-| ![Home Screen](https://via.placeholder.com/200x400?text=Home+Screen) | ![Skin Analysis](https://via.placeholder.com/200x400?text=Skin+Analysis) | ![Recommendations](https://via.placeholder.com/200x400?text=Recommendations) |  
-
-| **Reminders Page**                       | **History Log**                          |  
+| **Home Screen**                          | **Skin Analysis**                        |  
 |------------------------------------------|------------------------------------------|  
-| ![Reminders](https://via.placeholder.com/200x400?text=Reminders+Page) | ![History Log](https://via.placeholder.com/200x400?text=History+Log) |  
+| ![Home Screen](https://via.placeholder.com/200x400?text=Home+Screen) | ![Skin Analysis](https://via.placeholder.com/200x400?text=Skin+Analysis) |  
 
----
+| **Personalized Recommendations**         | **Reminders Page**                       |  
+|------------------------------------------|------------------------------------------|  
+| ![Recommendations](https://via.placeholder.com/200x400?text=Recommendations) | ![Reminders](https://via.placeholder.com/200x400?text=Reminders+Page) |  
 
-Gambar-gambar ini memberikan gambaran antarmuka pengguna **Skinalyze** yang intuitif dan mudah digunakan, memandu pengguna dari proses analisis kulit hingga pengelolaan rutinitas perawatan kulit.  
+| **History Log**                          | **Settings Page**                        |  
+|------------------------------------------|------------------------------------------|  
+| ![History Log](https://via.placeholder.com/200x400?text=History+Log) | ![Settings](https://via.placeholder.com/200x400?text=Settings+Page) |  
